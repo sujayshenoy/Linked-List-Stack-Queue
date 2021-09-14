@@ -4,17 +4,17 @@ import java.io.PrintWriter;
 
 import com.yml.linkedlist.LinkedList;
 import com.yml.linkedlist.OrderedLinkedList;
+import com.yml.stack.Stack;
 
 public class LinkedMain {
     public static void main(String args[]) {
-        OrderedLinkedList<Integer> orderedLinkedList = new OrderedLinkedList<Integer>();
+        Stack<Integer> stack = new Stack<Integer>();
 
-        orderedLinkedList.add(56);
-        orderedLinkedList.add(30);
-        orderedLinkedList.add(40);
-        orderedLinkedList.add(70);
-        orderedLinkedList.print();
-        System.out.println("List size : "+orderedLinkedList.size());
+        stack.push(70);
+        stack.push(30);
+        stack.push(56);
+        stack.print();
+        System.out.println("Stack Top : "+stack.getTop());
     }
 
 }
