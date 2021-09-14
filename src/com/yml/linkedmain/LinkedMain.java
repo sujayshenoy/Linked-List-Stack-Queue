@@ -15,6 +15,10 @@ public class LinkedMain {
         queue.enqueue(30);
         queue.enqueue(70);
         queue.print();
+        while (!queue.isEmpty()) {
+            System.out.println("Dequeued : " + queue.dequeue());
+            queue.print();
+        }
 
     }
 
