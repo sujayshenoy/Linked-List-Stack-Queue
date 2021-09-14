@@ -21,6 +21,21 @@ public class LinkedList<T> implements Iterable<Node<T>> {
         head = newNode;
     }
 
+    public void append(T data)  {
+        Node<T> newNode = new Node<T>(data);
+
+        if   (head == null) {
+            head = newNode;
+            return;
+        }
+
+        Node<T> temp = head;
+        while (temp.getNext() != null) {
+            temp = temp.getNext();
+        }
+        temp.setNext(newNode);
+    }
+
     public void print() {
         Iterator<Node<T>> itr = this.iterator();
         while (itr.hasNext()) {
