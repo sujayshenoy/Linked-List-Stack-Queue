@@ -13,7 +13,7 @@ public class LinkedMain {
         linkedList.insertAt(1, 30);
         linkedList.print();
         
-        System.out.println("Popped : "+linkedList.pop());
+        System.out.println("Popped : "+linkedList.popLast());
 
         linkedList.print();
     }
