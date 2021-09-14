@@ -9,17 +9,13 @@ public class LinkedMain {
         LinkedList<Integer> linkedList = new LinkedList<Integer>();
 
         linkedList.append(56);
+        linkedList.append(30);
         linkedList.append(70);
-        linkedList.insertAt(1, 30);
         linkedList.print();
 
-        int keyPos = linkedList.search(30);
-        if (keyPos >= 0) {
-            System.out.println("Element found at position " + keyPos);
-        }
-        else {
-            System.out.println("Element not found");
-        }
+        linkedList.insertAfter(30, 40);
+
+        linkedList.print();
     }
 
 }

@@ -60,6 +60,14 @@ public class LinkedList<T> implements Iterable<Node<T>> {
         temp.setNext(newNode);
     }
 
+    public void insertAfter(T element, T data) throws NoSuchElementException {
+        int position = search(element);
+        if (position < 0) {
+            throw new NoSuchElementException();
+        }
+        insertAt(position+1, data);
+    }
+
     public boolean isEmpty() {
         return size == 0;
     }
