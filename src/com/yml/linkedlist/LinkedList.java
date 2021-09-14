@@ -1,6 +1,7 @@
 package com.yml.linkedlist;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class LinkedList<T> implements Iterable<Node<T>> {
     Node<T> head;
@@ -59,7 +60,28 @@ public class LinkedList<T> implements Iterable<Node<T>> {
         temp.setNext(newNode);
     }
 
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public T pop() throws NoSuchElementException{
+        T popped = null;
+
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+
+        Node<T> temp = head;
+        head = head.getNext();
+        return temp.getData();
+        
+    }
+
     public void print() {
+        if (isEmpty()) {
+            System.out.println("Linked list is empty");
+        }
+
         Iterator<Node<T>> itr = this.iterator();
         while (itr.hasNext()) {
             System.out.print(itr.next().getData() + "->");
