@@ -64,7 +64,7 @@ public class LinkedList<T> implements Iterable<Node<T>> {
         return size == 0;
     }
 
-    public T pop() throws NoSuchElementException{
+    public T pop() throws NoSuchElementException {
         T popped = null;
 
         if (isEmpty()) {
@@ -74,7 +74,29 @@ public class LinkedList<T> implements Iterable<Node<T>> {
         Node<T> temp = head;
         head = head.getNext();
         return temp.getData();
-        
+
+    }
+    
+    public T popLast() throws NoSuchElementException {
+        T popped = null;
+        Node<T> temp = head;
+
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        else if (head.getNext() == null) {
+            popped = temp.getData();
+            head = null;
+        }
+        else {
+            while (temp.getNext().getNext() != null) {
+                temp = temp.getNext();
+            }
+            popped = temp.getNext().getData();
+            temp.setNext(null);
+        }
+
+        return popped;
     }
 
     public void print() {
