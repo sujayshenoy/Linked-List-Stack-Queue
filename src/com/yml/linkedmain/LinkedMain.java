@@ -12,10 +12,13 @@ public class LinkedMain {
         linkedList.append(30);
         linkedList.append(70);
         linkedList.print();
-
+        System.out.println("List size : "+linkedList.size());
         linkedList.insertAfter(30, 40);
-
         linkedList.print();
+        System.out.println("List size : "+linkedList.size());
+        linkedList.findAndRemove(40);
+        linkedList.print();
+        System.out.println("List size : "+linkedList.size());
     }
 
 }
