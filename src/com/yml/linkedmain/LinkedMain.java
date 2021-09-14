@@ -11,6 +11,9 @@ public class LinkedMain {
         linkedList.append(56);
         linkedList.append(70);
         linkedList.insertAt(1, 30);
+        linkedList.print();
+        
+        System.out.println("Popped : "+linkedList.pop());
 
         linkedList.print();
     }
