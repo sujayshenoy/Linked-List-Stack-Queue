@@ -4,22 +4,18 @@ import java.io.PrintWriter;
 
 import com.yml.linkedlist.LinkedList;
 import com.yml.linkedlist.OrderedLinkedList;
+import com.yml.queue.Queue;
 import com.yml.stack.Stack;
 
 public class LinkedMain {
     public static void main(String args[]) {
-        Stack<Integer> stack = new Stack<Integer>();
+        Queue<Integer> queue = new Queue<Integer>();
 
-        stack.push(70);
-        stack.push(30);
-        stack.push(56);
-        stack.print();
+        queue.enqueue(56);
+        queue.enqueue(30);
+        queue.enqueue(70);
+        queue.print();
 
-        while (!stack.isEmpty()) {
-            System.out.println("Peek : " + stack.peek());
-            System.out.println("Popped : " + stack.pop());
-            stack.print();
-        }        
     }
 
 }
