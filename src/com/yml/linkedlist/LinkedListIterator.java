@@ -2,7 +2,7 @@ package com.yml.linkedlist;
 
 import java.util.Iterator;
 
-public class LinkedListIterator<T> implements Iterator<Node<T>> {
+public class LinkedListIterator<T extends Comparable<T>> implements Iterator<Node<T>> {
     Node<T> current;
 
     LinkedListIterator(Node<T> head){

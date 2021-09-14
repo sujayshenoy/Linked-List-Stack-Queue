@@ -3,7 +3,7 @@ package com.yml.linkedlist;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class LinkedList<T> implements Iterable<Node<T>> {
+public class LinkedList<T extends Comparable<T>> implements Iterable<Node<T>> {
     Node<T> head;
     int size;
     
@@ -66,7 +66,15 @@ public class LinkedList<T> implements Iterable<Node<T>> {
         if (position < 0) {
             throw new NoSuchElementException();
         }
-        insertAt(position+1, data);
+        insertAt(position + 1, data);
+    }
+    
+    public void insertBefore(T element, T data) throws NoSuchElementException {
+        int position = search(element);
+        if (position < 0) {
+            throw new NoSuchElementException();
+        }
+        insertAt(position, data);
     }
 
     public boolean isEmpty() {
