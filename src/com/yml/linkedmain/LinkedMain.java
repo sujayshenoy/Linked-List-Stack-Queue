@@ -9,8 +9,8 @@ public class LinkedMain {
         LinkedList<Integer> linkedList = new LinkedList<Integer>();
 
         linkedList.append(56);
-        linkedList.append(30);
         linkedList.append(70);
+        linkedList.insertAt(1, 30);
 
         linkedList.print();
     }
