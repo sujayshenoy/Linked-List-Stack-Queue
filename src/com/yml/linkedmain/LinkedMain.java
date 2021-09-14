@@ -12,10 +12,14 @@ public class LinkedMain {
         linkedList.append(70);
         linkedList.insertAt(1, 30);
         linkedList.print();
-        
-        System.out.println("Popped : "+linkedList.popLast());
 
-        linkedList.print();
+        int keyPos = linkedList.search(30);
+        if (keyPos >= 0) {
+            System.out.println("Element found at position " + keyPos);
+        }
+        else {
+            System.out.println("Element not found");
+        }
     }
 
 }

@@ -99,6 +99,24 @@ public class LinkedList<T> implements Iterable<Node<T>> {
         return popped;
     }
 
+    public int search(T data) throws NoSuchElementException {
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+
+        Node<T> temp = head;
+        int count = 0;
+        do{
+            if (temp.getData() == data) {
+                return count;
+            }
+            temp = temp.getNext();
+            count++;
+        } while (temp != null);
+
+        return -1;
+    }
+
     public void print() {
         if (isEmpty()) {
             System.out.println("Linked list is empty");
