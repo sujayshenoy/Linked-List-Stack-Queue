@@ -14,7 +14,12 @@ public class LinkedMain {
         stack.push(30);
         stack.push(56);
         stack.print();
-        System.out.println("Stack Top : "+stack.getTop());
+
+        while (!stack.isEmpty()) {
+            System.out.println("Peek : " + stack.peek());
+            System.out.println("Popped : " + stack.pop());
+            stack.print();
+        }        
     }
 
 }
