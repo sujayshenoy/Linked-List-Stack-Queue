@@ -58,6 +58,7 @@ public class LinkedList<T> implements Iterable<Node<T>> {
         }
         newNode.setNext(temp.getNext());
         temp.setNext(newNode);
+        size++;
     }
 
     public void insertAfter(T element, T data) throws NoSuchElementException {
@@ -72,15 +73,18 @@ public class LinkedList<T> implements Iterable<Node<T>> {
         return size == 0;
     }
 
-    public T pop() throws NoSuchElementException {
-        T popped = null;
+    public int size() {
+        return size;
+    }
 
+    public T pop() throws NoSuchElementException {
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
 
         Node<T> temp = head;
         head = head.getNext();
+        size--;
         return temp.getData();
 
     }
@@ -91,20 +95,52 @@ public class LinkedList<T> implements Iterable<Node<T>> {
 
         if (isEmpty()) {
             throw new NoSuchElementException();
-        }
-        else if (head.getNext() == null) {
+        } else if (head.getNext() == null) {
             popped = temp.getData();
             head = null;
-        }
-        else {
+        } else {
             while (temp.getNext().getNext() != null) {
                 temp = temp.getNext();
             }
             popped = temp.getNext().getData();
             temp.setNext(null);
         }
-
+        size--;
         return popped;
+    }
+    
+    public T remove(int index) throws NoSuchElementException, IndexOutOfBoundsException {
+        T removed = null;
+        Node<T> temp = head;
+        Node<T> prev = temp;
+
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        if (index > size()) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        int count = 0;
+        while (count != index) {
+            prev = temp;
+            temp = temp.getNext();
+            count++;
+        }
+        prev.setNext(temp.getNext());
+        removed = temp.getData();
+        temp = null;
+        
+        size--;
+        return removed;
+    }
+    
+    public T findAndRemove(T element) throws NoSuchElementException {
+        int position = search(element);
+        if (position < 0) {
+            throw new NoSuchElementException();
+        }
+        return remove(position);
     }
 
     public int search(T data) throws NoSuchElementException {
