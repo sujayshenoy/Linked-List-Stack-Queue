@@ -4,8 +4,8 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class LinkedList<T extends Comparable<T>> implements Iterable<Node<T>> {
-    Node<T> head;
-    int size;
+    protected Node<T> head;
+    protected int size;
     
     public LinkedList() {
         head = null;
